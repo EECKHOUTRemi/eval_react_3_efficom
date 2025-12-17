@@ -9,6 +9,7 @@ export default function ItemDetails(){
     const [data, setData] = useState([]);
     const [buttonText, setButtonText] = useState("Ajouter aux favoris");
     const navigate = useNavigate();
+    const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
         fetch(`http://www.omdbapi.com/?apikey=112d69b3&i=${params.id}`, {method: 'POST', 
@@ -21,11 +22,13 @@ export default function ItemDetails(){
     function addToFavorites(){
         localStorage.setItem('favorite', params.id);
         setButtonText("Retirer des favoris");
+        setIsFavorite(true);
     }
 
     function removeFromFavorites(){
         localStorage.removeItem('favorite', params.id);
         setButtonText("Ajouter aux favoris");
+        setIsFavorite(false);
     }
 
     return(
@@ -36,7 +39,7 @@ export default function ItemDetails(){
                         <ArrowLeft onClick={() => navigate(-1)} />
                     </div>
                     <div className="heart">
-                        <button onClick={localStorage.getItem('favorite', params.id) ? removeFromFavorites : addToFavorites} >{buttonText}</button>
+                        <button onClick={isFavorite ? removeFromFavorites : addToFavorites} >{buttonText}</button>
                     </div>
                 </div>
                 <img src={data.Poster} alt={data.Title} />
