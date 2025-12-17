@@ -44,8 +44,13 @@ export default function ItemDetails(){
                 </div>
                 <img src={data.Poster} alt={data.Title} />
                 <div className="cardHeader">{data.Title} ({data.Released})</div>
-                <div className="genre">{data.Genre}</div>
-                <div className="runtime">{data.Runtime}</div>
+                <div className="genre"><strong>Genre:</strong> {data.Genre}</div>
+                <div className="runtime"><strong>Runtime:</strong> {data.Runtime}</div>
+                <div className="plot"><strong>Plot:</strong> {data.Plot}</div>
+                <div className="director"><strong>Director:</strong> {data.Director}</div>
+                <div className="actors"><strong>Actors:</strong> {data.Actors}</div>
+                <div className="language"><strong>Language:</strong> {data.Language}</div>
+                <div className="awards"><strong>Awards:</strong> {data.Awards}</div>
             </div>
         </>
     )

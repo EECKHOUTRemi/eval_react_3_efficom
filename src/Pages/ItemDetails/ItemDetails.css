@@ -1,5 +1,10 @@
+.movieCard {
+    margin-top: 50px;
+}
+
 .icons {
     display: flex;
-    gap: 300px;
+    gap: 75%;
     margin-bottom: 50px;
 }
+
