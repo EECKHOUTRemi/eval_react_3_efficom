@@ -19,6 +19,7 @@ export default function ItemDetails(){
         .then(data => setData(data));
     }, [params.id]);
 
+    // Je n'ai pas trouvé comment stocker plusieurs favoris dans le localStorage, donc je ne stocke qu'un seul favori.
     function addToFavorites(){
         localStorage.setItem('favorite', params.id);
         setButtonText("Retirer des favoris");
