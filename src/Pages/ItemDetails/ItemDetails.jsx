@@ -7,6 +7,7 @@ import { ArrowLeft, Heart } from 'lucide-react';
 export default function ItemDetails(){
     let params = useParams();
     const [data, setData] = useState([]);
+    const [buttonText, setButtonText] = useState("Ajouter aux favoris");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -17,12 +18,26 @@ export default function ItemDetails(){
         .then(data => setData(data));
     }, [params.id]);
 
+    function addToFavorites(){
+        localStorage.setItem('favorite', params.id);
+        setButtonText("Retirer des favoris");
+    }
+
+    function removeFromFavorites(){
+        localStorage.removeItem('favorite', params.id);
+        setButtonText("Ajouter aux favoris");
+    }
+
     return(
         <>
             <div className="movieCard">
                 <div className="icons">
-                    <ArrowLeft onClick={() => navigate(-1)} />
-                    <Heart />
+                    <div className="arrow">
+                        <ArrowLeft onClick={() => navigate(-1)} />
+                    </div>
+                    <div className="heart">
+                        <button onClick={localStorage.getItem('favorite', params.id) ? removeFromFavorites : addToFavorites} >{buttonText}</button>
+                    </div>
                 </div>
                 <img src={data.Poster} alt={data.Title} />
                 <div className="cardHeader">{data.Title} ({data.Released})</div>

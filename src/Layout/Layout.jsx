@@ -9,6 +9,7 @@ export default function Layout(){
                 <div className="left-bar bar">
                     <NavLink to='/'>Home</NavLink>
                     <NavLink to='/items'>Items</NavLink>
+                    <NavLink to='/avis'>Avis</NavLink>
                 </div>
             </div>
             <Outlet />
