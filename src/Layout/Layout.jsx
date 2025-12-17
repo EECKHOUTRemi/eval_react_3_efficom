@@ -1,6 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "./Layout.css";
-import Home from "../Home/Home";
 
 export default function Layout(){
 

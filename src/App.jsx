@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Item from './Components/Item/Item.jsx'
-import Items from './Components/Items/Items.jsx'
+import Item from './Pages/ItemDetails/ItemDetails.jsx'
+import Items from './Pages/Items/Items.jsx'
 import './App.css'
-import Home from './Components/Home/Home.jsx'
-import Layout from './Components/Layout/Layout.jsx';
+import Home from './Pages/Home/Home.jsx'
+import Layout from './Layout/Layout.jsx';
 
 function App() {
 
