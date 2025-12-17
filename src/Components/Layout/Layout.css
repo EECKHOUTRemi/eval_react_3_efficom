@@ -1,0 +1,40 @@
+.layout .navbar{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #404040;
+}
+
+.layout .navbar .bar{
+    display: flex;
+
+}
+
+.layout .navbar a{
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.layout .navbar .logout-icon{
+    margin: 1rem;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.layout .navbar a.active{
+    background-color: #505050;
+}
+
+.layout .navbar a:hover, .layout .navbar .logout-icon:hover{
+    background-color: #505050;
+}
