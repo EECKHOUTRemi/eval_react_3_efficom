@@ -1,17 +1,15 @@
 import { useState } from "react";
 import "./SearchBar.css";
 
-export default function SearchBar( ){
-    const [data, SetData] = useState([]);
+export default function SearchBar( { setData } ){
+    const [term , setTerm] = useState("");
 
-    async function getMovies(){
-        const term = document.querySelector('.searchProduct').value;
-        fetch(`http://www.omdbapi.com/?apikey=112d69b3&t=${term}`, {method: 'POST', 
-            headers: {'Content-Type': 'application/json'},
+    async function getMoviesByName(){
+        fetch(`http://www.omdbapi.com/?apikey=112d69b3&s=${term}`, {method: 'POST', 
             body: JSON.stringify({terms: [term]})
         })
         .then(response => response.json())
-        .then(data => SetData(data));
+        .then(data => setData(data.Search));
     }
 
     return(
@@ -20,15 +18,9 @@ export default function SearchBar( ){
                 type="text" 
                 placeholder='Rechercher un film' 
                 className='searchProduct' 
+                onKeyUp={(e) => setTerm(e.target.value)}
             />
-            <button onClick={getMovies()}>Rechercher</button>
-            <div className="filteredData">
-                {data.map((item, index) => (
-                    <div key={index} className="dataItem">
-                        {item.Title}
-                    </div>
-                ))}
-            </div>
+            <button onClick={() => {getMoviesByName()}}>Rechercher</button>
         </div>
     )
 }

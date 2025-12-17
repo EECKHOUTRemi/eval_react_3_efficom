@@ -4,6 +4,7 @@ import Items from './Pages/Items/Items.jsx'
 import './App.css'
 import Home from './Pages/Home/Home.jsx'
 import Layout from './Layout/Layout.jsx';
+import ItemDetails from './Pages/ItemDetails/ItemDetails.jsx'
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="items">
               <Route index element={<Items />} />
-              <Route path=":id" element={<Item />} />
+              <Route path=":id" element={<ItemDetails />} />
             </Route>
           </Route>
         </Routes>
