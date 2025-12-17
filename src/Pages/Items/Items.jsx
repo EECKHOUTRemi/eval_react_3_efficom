@@ -1,7 +1,7 @@
 import { useState } from "react";
-import SearchField from "../../Components/SearchBar";
+import SearchField from "../../Components/SearchBar/SearchBar";
 import "./Items.css";
-import Item from "../../Components/Item";
+import Item from "../../Components/Item/Item";
 
 export default function Items(){
     const [data, SetData] = useState([]);
